@@ -32,15 +32,15 @@
 
 #### 方式一：下载预编译版本（推荐）
 
-1. 前往 [Releases](https://github.com/EchoZuo/dsh-mac-shell/releases) 页面
-2. 下载最新版本的 `dsh-shell-mac.zip`
+1. 前往 [Releases](https://github.com/EchoZuo/deepseek-harness-desktop/releases) 页面
+2. 下载最新版本的 `deepseek-harness-desktop-mac.zip`
 3. 解压并将 `DSH Shell.app` 拖入"应用程序"文件夹
 4. 首次运行时，如果系统提示"无法验证开发者"，请右键点击应用 → 打开
 
 #### 方式二：从源码编译
 
 ```bash
-git clone https://github.com/EchoZuo/dsh-mac-shell.git
+git clone https://github.com/EchoZuo/deepseek-harness-desktop.git
 cd dsh-mac-shell
 bash build.sh
 ```
@@ -125,15 +125,15 @@ A minimal macOS desktop application that provides a native window experience for
 
 #### Option 1: Download Pre-built Release (Recommended)
 
-1. Go to the [Releases](https://github.com/EchoZuo/dsh-mac-shell/releases) page
-2. Download the latest `dsh-shell-mac.zip`
+1. Go to the [Releases](https://github.com/EchoZuo/deepseek-harness-desktop/releases) page
+2. Download the latest `deepseek-harness-desktop-mac.zip`
 3. Extract and drag `DSH Shell.app` to your Applications folder
 4. On first run, if you see "cannot be opened because the developer cannot be verified", right-click the app → Open
 
 #### Option 2: Build from Source
 
 ```bash
-git clone https://github.com/EchoZuo/dsh-mac-shell.git
+git clone https://github.com/EchoZuo/deepseek-harness-desktop.git
 cd dsh-mac-shell
 bash build.sh
 ```

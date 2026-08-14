@@ -189,57 +189,10 @@ final class AppDelegate: NSObject, NSApplicationDelegate {
            let icon = NSImage(contentsOf: url) {
             NSApp.applicationIconImage = icon
         }
-        installMainMenu()
         NSApp.activate(ignoringOtherApps: true)
     }
 
     func applicationShouldTerminateAfterLastWindowClosed(_ sender: NSApplication) -> Bool {
         true
-    }
-
-    // 原生菜单：让 Cmd+C/V/A、Cmd+R 在 WKWebView 里正常工作
-    private func installMainMenu() {
-        let mainMenu = NSMenu()
-
-        let appItem = NSMenuItem()
-        mainMenu.addItem(appItem)
-        let appMenu = NSMenu()
-        appMenu.addItem(withTitle: "关于 DSH Shell",
-                        action: #selector(NSApplication.orderFrontStandardAboutPanel(_:)),
-                        keyEquivalent: "")
-        appMenu.addItem(.separator())
-        appMenu.addItem(withTitle: "退出 DSH Shell",
-                        action: #selector(NSApplication.terminate(_:)),
-                        keyEquivalent: "q")
-        appItem.submenu = appMenu
-
-        let editItem = NSMenuItem()
-        mainMenu.addItem(editItem)
-        let editMenu = NSMenu(title: "编辑")
-        editMenu.addItem(withTitle: "撤销", action: Selector(("undo:")), keyEquivalent: "z")
-        editMenu.addItem(withTitle: "剪切", action: #selector(NSText.cut(_:)), keyEquivalent: "x")
-        editMenu.addItem(withTitle: "拷贝", action: #selector(NSText.copy(_:)), keyEquivalent: "c")
-        editMenu.addItem(withTitle: "粘贴", action: #selector(NSText.paste(_:)), keyEquivalent: "v")
-        editMenu.addItem(withTitle: "全选", action: #selector(NSResponder.selectAll(_:)), keyEquivalent: "a")
-        editItem.submenu = editMenu
-
-        let viewItem = NSMenuItem()
-        mainMenu.addItem(viewItem)
-        let viewMenu = NSMenu(title: "显示")
-        viewMenu.addItem(withTitle: "重新加载", action: #selector(WKWebView.reload(_:)), keyEquivalent: "r")
-        viewItem.submenu = viewMenu
-
-        let windowItem = NSMenuItem()
-        mainMenu.addItem(windowItem)
-        let windowMenu = NSMenu(title: "窗口")
-        windowMenu.addItem(withTitle: "最小化",
-                           action: #selector(NSWindow.performMiniaturize(_:)),
-                           keyEquivalent: "m")
-        windowMenu.addItem(withTitle: "缩放",
-                           action: #selector(NSWindow.performZoom(_:)),
-                           keyEquivalent: "")
-        windowItem.submenu = windowMenu
-
-        NSApp.mainMenu = mainMenu
     }
 }

@@ -1,0 +1,41 @@
+DSH Shell — DeepSeek Harness 桌面壳（自用/内部分发版）
+====================================================
+
+这是什么
+--------
+一个极简 macOS 桌面壳，把本机运行中的 DeepSeek Harness Web 界面
+（dsh web 启动的服务）装进一个原生窗口。它本身不包含 DSH 运行时。
+
+系统要求
+--------
+- macOS 13.0 及以上
+- Apple Silicon 和 Intel 均支持（Universal Binary）
+- 本机已安装 DeepSeek Harness，并且正在运行 dsh web
+  （本壳子会依次探测 127.0.0.1 的 3080 / 8080 / 3000 端口）
+
+首次打开（重要）
+----------------
+应用是 ad-hoc 签名，Gatekeeper 第一次会拦截，提示
+"无法验证开发者"。解决方式二选一：
+
+1. 在访达里右键点击 DSH Shell.app → 打开 → 再点"打开"
+2. 或在终端执行：
+   xattr -dr com.apple.quarantine "DSH Shell.app"
+
+使用方法
+--------
+1. 先在终端启动 DSH：  dsh web
+2. 打开 DSH Shell，会自动找到并加载界面
+3. 常用快捷键：Cmd+R 刷新，Cmd+Q 退出
+
+常见问题
+--------
+Q: 打开后显示"未找到运行中的 DSH Web 实例"？
+A: 说明终端里的 dsh web 没开，或不在 3080/8080/3000 端口上。
+   启动后点"重试探测"即可。
+
+Q: 用着用着页面白了？
+A: 终端里的 dsh 进程退了。重新跑 dsh web 后按 Cmd+R 恢复。
+
+Q: 能同时开多个吗？
+A: 可以，但都只是同一个 dsh 实例的窗口。

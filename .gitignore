@@ -1,0 +1,22 @@
+# Build artifacts
+*.app
+*.icns
+*.iconset/
+*.zip
+*.pcm
+
+# Module cache
+.module-cache/
+.module-cache-arm64/
+.module-cache-x86_64/
+
+# Temporary files
+.DS_Store
+*.swp
+*~
+
+# IDE
+.xcodeproj/
+.xcworkspace/
+*.xcuserstate
+DerivedData/
